@@ -23,6 +23,7 @@ def ticket(l, t):
                 adult = adult - 1
     f = lambda x: x[0] * x[1]
     total = sum(map(f, zip(cost[t], [adult, child])))
+    total = total * 1.1 if t == 'special' else total
     total = total * 0.95 if count >= 10 else total
     
     return total
@@ -32,6 +33,5 @@ if __name__ == '__main__':
     child = int(input('請輸入小孩人數：'))
     weekday, hour = getsystime()
     t = 'special' if weekday > 4 or (hour > 17 and hour < 24) else 'regular'
-    print(t)
     print('總價為：%d' % ticket([adult, child], t))
 
