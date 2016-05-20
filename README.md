@@ -9,11 +9,11 @@
 
 #### 程式說明
 
-時間將自動抓取系統時間，並且需要 `datetime` 套件，
-如碰到 `ImportError: No module named datetime`，
-請執行 `pip install datetime`
+時間將自動抓取系統時間，並且需要 `datetime` 套件，  
+如碰到 `ImportError: No module named datetime`，  
+請執行 `pip install datetime`  
 
-範例輸入輸出
+#### 範例輸入輸出
 ```sh
 $ python3 main.py
 請輸入大人人數：6
