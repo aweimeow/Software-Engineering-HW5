@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
-from datetime import date, datetime
 
 
 def ticket(l, t):
@@ -30,6 +29,6 @@ if __name__ == '__main__':
         print('輸入錯誤'); sys.exit()
     adult = int(input('請輸入大人人數：'))
     child = int(input('請輸入小孩人數：'))
-    t = 'special' if t == 1 else 'regular'
+    t = 'regular' if t == 1 else 'special'
     print('總價為：%d' % ticket([adult, child], t))
 
