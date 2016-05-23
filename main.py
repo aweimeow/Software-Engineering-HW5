@@ -1,15 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+import sys
 from datetime import date, datetime
 
-
-def getsystime():
-    today = list()
-    for n in str(date.today()).split('-'):
-        today.append(int(n))
-    weekday = date(*tuple(today)).weekday()
-    hour = datetime.now().hour
-    return weekday, hour
 
 def ticket(l, t):
     cost = {'regular': [268, 120], 'special': [368, 150]}
@@ -29,9 +22,14 @@ def ticket(l, t):
     return total
 
 if __name__ == '__main__':
+    try:
+        t = int(input('請輸入時間（平日中午 1、平日晚上 2、假日 3）: '))
+        if t > 3 or t < 1:
+            sys.exit()
+    except:
+        print('輸入錯誤'); sys.exit()
     adult = int(input('請輸入大人人數：'))
     child = int(input('請輸入小孩人數：'))
-    weekday, hour = getsystime()
-    t = 'special' if weekday > 4 or (hour > 17 and hour < 24) else 'regular'
+    t = 'special' if t == 1 else 'regular'
     print('總價為：%d' % ticket([adult, child], t))
 
