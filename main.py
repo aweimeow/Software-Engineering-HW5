@@ -7,7 +7,7 @@ def ticket(l, t):
     cost = {'regular': [268, 120], 'special': [368, 150]}
     adult, child = l[:]
     count = adult + child
-    if adult + child > 3:
+    if adult + child >= 3:
         for i in range((adult + child)//3):
             if child > 0:
                 child = child - 1
@@ -15,7 +15,7 @@ def ticket(l, t):
                 adult = adult - 1
     f = lambda x: x[0] * x[1]
     total = sum(map(f, zip(cost[t], [adult, child])))
-    total = total * 1.1 if t == 'special' else total
+    total = total * 1.1
     total = total * 0.95 if count >= 10 else total
     
     return total
